@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google Geocoding</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="scripts/vendor/jquery.csv-0.71.min.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/maincontroller.js" type="text/javascript"></script>
+    <script id="google-maps" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body>
+    <div id='content' ng-app='GoogleGeocoding' ng-controller='MainController' ng-init="init()">
+        <input id="geocode-file" type="file" fileread="csvFile" />
+        <button type="button" id="geocode-button" ng-click="submitCsvUpload()" ng-disabled="!canGeocode">Geocode</button>
+        <p id="geocode-progress">0%</p>
+    </div>
+    <script type="text/javascript">
+        var geocoder = new google.maps.Geocoder();
+    </script>
+</body>
+</html>
